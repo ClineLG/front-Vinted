@@ -1,18 +1,288 @@
 @import "fonts.css";
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
-body {
+body,
+* {
   font-family: "V-Inter-reg", Arial, Helvetica, sans-serif;
+  font-size: 17px;
 }
 h1 {
-  font-family: "V-Inter-med", Arial, Helvetica, sans-serif;
+  font-family: "V-Inter-Med", Arial, Helvetica, sans-serif;
+
+  font-size: 35px;
+  line-height: 42.5px;
 }
 .container {
   margin: 0 auto;
   width: 1200px;
+}
+
+/* header */
+header {
+  border-bottom: 1px solid rgba(172, 172, 172, 0.24);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .headerUser {
+  display: flex;
+  gap: 20px;
+  width: 250px;
+}
+header form {
+  width: 30%;
+}
+
+header button {
+  border: none;
+  background-color: #007782;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  padding: 8px;
+  font-family: "V-Inter-reg";
+}
+header input {
+  width: 100%;
+  border: none;
+  padding: 8px 0;
+  border-radius: 5px;
+  background-color: rgba(178, 175, 175, 0.368);
+  padding-left: 10px;
+}
+/* sort-Buttons */
+.sortHome {
+  display: flex;
+  font-size: 14px;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0;
+  font-size: 13px;
+}
+.sortHome button {
+  height: 20px;
+  width: 40px;
+  border-radius: 99px;
+  border: none;
+  background-color: #007782;
+  position: relative;
+}
+.sortHome div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toggle .ball {
+  height: 17px;
+  width: 17px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 99px;
+  position: absolute;
+  left: 3px;
+  bottom: 2px;
+  transform: translateX(0);
+  transition: left 0.5s ease;
+}
+.toggle.on .ball {
+  left: calc(40px - 20px);
+}
+
+button:hover {
+  cursor: pointer;
+}
+/* hero */
+
+.headerUser button {
+  border: none;
+  flex: 1;
+  padding: 6px 10px;
+  background-color: white;
+  border: 1px solid #007782;
+  border-radius: 5px;
+  color: #007782;
+  font-size: 12px;
+}
+
+.header {
+  height: 450px;
+  position: relative;
+}
+.header img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.header div {
+  width: 383px;
+  padding: 50px 30px;
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  bottom: 100px;
+  left: 8%;
+}
+
+.header h1 {
+  width: 76%;
+}
+.header div button {
+  margin-top: 30px;
+  padding: 10px;
+  border: none;
+  background-color: #007782;
+  width: 100%;
+  border-radius: 5px;
+
+  color: white;
+}
+/* section offres */
+
+.offer {
+  height: 470px;
+  width: 230px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.offer div:first-child {
+  width: 100%;
+  height: 10%;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(128, 128, 128, 0.707);
+}
+.offer div:first-child img {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.mainpicture {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+.section1 {
+  padding: 40px 0px;
+}
+.section1 .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  row-gap: 20px;
+}
+.homeDetailsOffer {
+  padding: 5px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.homeDetailsOffer p {
+  font-size: 11px;
+  line-height: 15px;
+  color: rgba(128, 128, 128, 0.735);
+}
+/* Offer */
+
+.section2 {
+  background-color: rgba(176, 176, 176, 0.344);
+  padding: 60px 0px;
+}
+
+.mainPictureOffer {
+  height: 602px;
+  width: 100%;
+  object-fit: contain;
+}
+.carroussel img {
+  height: 200px;
+  width: 33%;
+  object-fit: cover;
+}
+.section2 .carroussel {
+  width: 100%;
+  display: flex;
+  overflow: scroll;
+  /* border: black 1px solid; */
+  scrollbar-width: none;
+  gap: 10px;
+}
+.avoir {
+  width: 450px;
+}
+.section2 .container {
+  display: flex;
+  justify-content: space-between;
+}
+.rightDiv {
+  width: 450px;
+  height: 602px;
+  padding: 30px;
+  font-size: 30px;
+  font-family: "V-Inter-reg";
+  line-height: 50px;
+  background-color: white;
+  align-self: center;
+}
+
+.rightDiv img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 99px;
+}
+.details {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.486);
+}
+.rightDiv .details p {
+  font-size: 13px;
+  line-height: 20px;
+  display: flex;
+}
+.rightDiv .details span {
+  flex: 1;
+  color: rgba(128, 128, 128, 0.674);
+}
+.rightDiv .details .bold {
+  font-family: V-Inter-med, Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.bottomRightDivOffer p {
+  font-size: 16px;
+  line-height: 20px;
+  color: gray;
+  padding-bottom: 20px;
+}
+.bottomRightDivOffer h3 {
+  font-family: V-Inter-med, Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  padding: 30px 0px 10px 0;
+}
+.rightDiv .bottomRightDivOffer .ownerOffer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+.rightDiv button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 35px;
+  border: none;
+  background-color: #007782;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
 }
