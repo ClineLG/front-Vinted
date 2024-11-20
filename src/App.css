@@ -1,0 +1,18 @@
+@import "fonts.css";
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+body {
+  font-family: "V-Inter-reg", Arial, Helvetica, sans-serif;
+}
+h1 {
+  font-family: "V-Inter-med", Arial, Helvetica, sans-serif;
+}
+.container {
+  margin: 0 auto;
+  width: 1200px;
+}
