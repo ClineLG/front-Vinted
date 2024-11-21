@@ -1,7 +1,16 @@
 import { useState } from "react";
 import logo from "../assets/imgs/logo-Vinted.svg";
 import { Link } from "react-router-dom";
-const Header = () => {
+import Cookies from "js-cookie";
+
+const Header = ({
+  signUp,
+  setSignUp,
+  connected,
+  setConnected,
+  login,
+  setLogin,
+}) => {
   const [search, setSearch] = useState("");
 
   return (
@@ -23,11 +32,34 @@ const Header = () => {
             }}
           />
         </form>
-        {/* Link signUp et Login */}
-        <div className="headerUser">
-          <button>S'inscrire</button>
-          <button>Se connecter</button>
-        </div>
+
+        {connected ? (
+          <button
+            onClick={() => {
+              Cookies.remove("token");
+              setConnected(false);
+            }}
+          >
+            Se déconnecter
+          </button>
+        ) : (
+          <div className="headerUser">
+            <button
+              onClick={() => {
+                setSignUp(!signUp);
+              }}
+            >
+              S'inscrire
+            </button>
+            <button
+              onClick={() => {
+                setLogin(!login);
+              }}
+            >
+              Se connecter
+            </button>
+          </div>
+        )}
 
         <button>Vends tes Articles</button>
       </div>

@@ -223,8 +223,8 @@ button:hover {
   justify-content: space-between;
 }
 .rightDiv {
+  border-radius: 5px;
   width: 450px;
-  height: 602px;
   padding: 30px;
   font-size: 30px;
   font-family: "V-Inter-reg";
@@ -280,9 +280,133 @@ button:hover {
   width: 100%;
   padding: 10px;
   margin-top: 35px;
+  margin-bottom: 10px;
   border: none;
   background-color: #007782;
   color: white;
   font-size: 15px;
   border-radius: 5px;
+}
+.App {
+  position: relative;
+  z-index: 1;
+}
+.App.AppOn {
+  height: 100vh;
+  overflow: hidden;
+}
+.SignUp,
+.Login {
+  background-color: #0d0e0f4e;
+
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SignUp div:first-child,
+.Login div:first-child {
+  position: relative;
+  width: 700px;
+  background-color: white;
+  width: 300px;
+  border-radius: 5px;
+  padding: 30px 20px;
+}
+.SignUp form,
+.Login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.hide {
+  display: none;
+}
+.hide.wrong {
+  display: block;
+  color: red;
+}
+.SignUp form input,
+.Login form input {
+  font-size: 12px;
+  color: #007782;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  border: none;
+  width: 70%;
+  border-bottom: 1px solid #00778225;
+}
+.SignUp form .checkbox {
+  /* align-self: self-start; */
+  display: flex;
+  width: 100%;
+
+  padding: 0;
+  gap: 10px;
+  padding-top: 30px;
+}
+
+.SignUp form .checkbox p {
+  width: 300px;
+  align-self: center;
+  font-size: 16px;
+}
+.SignUp form .checkbox input {
+  width: fit-content;
+  height: 30px;
+  width: 30px;
+}
+.SignUp form h2,
+.Login form h2 {
+  font-family: V-Inter-Reg, Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  padding-bottom: 30px;
+}
+.SignUp .descripcheck {
+  margin-top: -19px;
+  padding: 0px 7px;
+  color: rgba(128, 128, 128, 0.727);
+}
+.SignUp .Submit,
+.Login .Submit {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007782;
+  color: white;
+  font-size: 16px;
+}
+.Login .Submit {
+  margin-top: 10px;
+}
+.Login form h2 {
+  padding: 20px;
+}
+.SignUp form .link,
+.Login form .link {
+  color: #007782;
+  margin-top: -5px;
+}
+.SignUp form .link:hover,
+.Login form .link:hover {
+  cursor: pointer;
+}
+.closeForm {
+  color: #007782;
+  background-color: white;
+  border: none;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-family: V-Inter-Med;
+  font-size: 24px;
 }

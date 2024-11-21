@@ -12,6 +12,7 @@ const Offers = () => {
         const response = await axios.get(
           // `https://lereacteur-vinted-api.herokuapp.com/v2/offers/${id}`
           `https://site--vinted-backend-project--dm4qbjsg7dww.code.run/offers/${id}`
+          // `http://localhost:3000/offers/${id}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -20,7 +21,7 @@ const Offers = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   return isLoading ? (
     <h1>Loading...</h1>
@@ -39,7 +40,11 @@ const Offers = () => {
             {data.product_pictures &&
               data.product_pictures.map((picture) => {
                 return (
-                  <img key={picture.asset_id} src={picture.secure_url} alt="" />
+                  <img
+                    key={picture.secure_url}
+                    src={picture.secure_url}
+                    alt=""
+                  />
                 );
               })}
           </div>
@@ -50,7 +55,7 @@ const Offers = () => {
             {data.product_details &&
               data.product_details.map((detail) => {
                 return (
-                  <p key={detail.MARQUE}>
+                  <p key={detail.TAILLE}>
                     <span>{Object.keys(detail)}</span>
                     <span className="bold">{Object.values(detail)}</span>
                   </p>
