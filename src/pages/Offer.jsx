@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { MdNoPhotography } from "react-icons/md";
+
 const Offers = () => {
   const { id } = useParams();
   const [data, setData] = useState();
@@ -11,8 +13,8 @@ const Offers = () => {
       try {
         const response = await axios.get(
           // `https://lereacteur-vinted-api.herokuapp.com/v2/offers/${id}`
-          `https://site--vinted-backend-project--dm4qbjsg7dww.code.run/offers/${id}`
-          // `http://localhost:3000/offers/${id}`
+          // `https://site--vinted-backend-project--dm4qbjsg7dww.code.run/offers/${id}`
+          `http://localhost:3000/offers/${id}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -29,33 +31,29 @@ const Offers = () => {
     <section className="section2">
       <div className="container">
         <div className="avoir">
-          {data.product_details && (
+          {data.product_image ? (
             <img
               className="mainPictureOffer"
               src={data.product_image.secure_url}
               alt="offer-main-picture"
             />
+          ) : (
+            <MdNoPhotography className="mainPictureOffer" />
           )}
           <div className="carroussel">
             {data.product_pictures &&
-              data.product_pictures.map((picture) => {
-                return (
-                  <img
-                    key={picture.secure_url}
-                    src={picture.secure_url}
-                    alt=""
-                  />
-                );
+              data.product_pictures.map((picture, index) => {
+                return <img key={index} src={picture.secure_url} alt="" />;
               })}
           </div>
         </div>
         <div className="rightDiv">
           <h2>{data.product_price} €</h2>
-          <div className="details">
+          <div className="details" key={data._id}>
             {data.product_details &&
-              data.product_details.map((detail) => {
+              data.product_details.map((detail, index) => {
                 return (
-                  <p key={detail.TAILLE}>
+                  <p key={index}>
                     <span>{Object.keys(detail)}</span>
                     <span className="bold">{Object.values(detail)}</span>
                   </p>

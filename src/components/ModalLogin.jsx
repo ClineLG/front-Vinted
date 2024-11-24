@@ -1,43 +1,43 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const ModalLogin = ({ setLogin, setSignUp, setConnected }) => {
   //   const navigate = useNavigate();
   const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
   });
-  const [submit, setSubmit] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (userInfo.email && userInfo.password && submit) {
-          const response = await axios.post(
-            "https://site--vinted-backend-project--dm4qbjsg7dww.code.run/user/login",
-            userInfo
-          );
-
-          setData(response.data);
-          setIsLoading(false);
-        }
-      } catch (error) {
-        setData(error);
-        setIsLoading(false);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setData(null);
+    try {
+      const response = await axios.post(
+        "https://site--vinted-backend-project--dm4qbjsg7dww.code.run/user/login",
+        userInfo
+      );
+      Cookies.set("token", response.data.token, { expires: 30 });
+      setConnected(true);
+      setLogin(false);
+    } catch (error) {
+      if (
+        error.response.data.error === "Wrong password" ||
+        error.response.data.error === "Email address unknown"
+      ) {
+        setData("Mauvais mot de passe et/ou email");
+      } else if (error.response.data.error === "Password needed") {
+        setData("Veuillez entrer un mot de passe");
+      } else if (error.response.data.error === "Email address needed") {
+        setData("Veuillez entrer une adresse e-mail");
+      } else {
+        setData("Une erreur est survenue, veuillez réessayer");
       }
-    };
-    fetchData();
-  }, [!submit]);
-
-  if (!isLoading && data.token) {
-    Cookies.set("token", data.token, { expires: 30 });
-    setConnected(true);
-    setLogin(false);
-  }
+    }
+  };
 
   return (
     <div className="Login">
@@ -50,11 +50,7 @@ const ModalLogin = ({ setLogin, setSignUp, setConnected }) => {
         >
           ╳
         </button>
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <h2>Se connecter</h2>
 
           <input
@@ -67,7 +63,6 @@ const ModalLogin = ({ setLogin, setSignUp, setConnected }) => {
               setUserInfo(objUser);
             }}
           />
-          {submit && userInfo.email === "" && <span>email missing</span>}
 
           <input
             type="text"
@@ -79,25 +74,11 @@ const ModalLogin = ({ setLogin, setSignUp, setConnected }) => {
               setUserInfo(objUser);
             }}
           />
-          {submit && userInfo.password === "" && <span>password missing</span>}
 
-          {!isLoading && data.error && (
-            <div className={`hide ${data.error ? "wrong" : ""}`}>
-              <p>
-                {data.error === "Wrong password" ||
-                  (data.error === "Email address unknown" &&
-                    "Mauvais mot de passe et/ou email")}
-              </p>
-            </div>
-          )}
-          <button
-            type="submit"
-            onClick={() => {
-              setSubmit(!submit);
-            }}
-            className="Submit"
-          >
-            S'inscrire
+          {data && <p className="red">{data}</p>}
+
+          <button type="submit" className="Submit">
+            Se connecter
           </button>
           <p
             onClick={() => {

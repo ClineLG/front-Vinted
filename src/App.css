@@ -1,5 +1,4 @@
 @import "fonts.css";
-
 * {
   box-sizing: border-box;
 }
@@ -21,6 +20,10 @@ h1 {
 
 /* header */
 header {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   border-bottom: 1px solid rgba(172, 172, 172, 0.24);
 }
 header .container {
@@ -47,26 +50,48 @@ header button {
   padding: 8px;
   font-family: "V-Inter-reg";
 }
+
+.search {
+  /* border: #007782 1px solid; */
+  display: flex;
+  align-items: center;
+  background-color: rgba(157, 157, 157, 0.407);
+  padding: 0px 10px;
+  gap: 5px;
+  border-radius: 5px;
+}
+
 header input {
   width: 100%;
   border: none;
   padding: 8px 0;
   border-radius: 5px;
-  background-color: rgba(178, 175, 175, 0.368);
-  padding-left: 10px;
+  background-color: transparent;
+}
+header input::placeholder {
+  font-family: V-Inter-reg, Arial, Helvetica, sans-serif;
+  color: rgba(128, 128, 128, 0.729);
+  font-size: 15px;
+}
+.searchIcon {
+  font-size: 20px;
+  color: rgba(128, 128, 128, 0.729);
 }
 /* sort-Buttons */
 .sortHome {
+  background-color: #ffffff;
   display: flex;
   font-size: 14px;
-  gap: 20px;
+  gap: 100px;
   align-items: center;
   padding: 20px 0;
   font-size: 13px;
+  color: gray;
 }
 .sortHome button {
-  height: 20px;
-  width: 40px;
+  padding: 10px;
+  height: 21px;
+  width: 41px;
   border-radius: 99px;
   border: none;
   background-color: #007782;
@@ -76,6 +101,15 @@ header input {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.sortHome p {
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  display: flex;
+  gap: 3px;
 }
 .toggle .ball {
   height: 17px;
@@ -89,7 +123,7 @@ header input {
   transition: left 0.5s ease;
 }
 .toggle.on .ball {
-  left: calc(40px - 20px);
+  left: calc(40px - 19px);
 }
 
 button:hover {
@@ -109,13 +143,22 @@ button:hover {
 }
 
 .header {
-  height: 450px;
+  height: 560px;
   position: relative;
 }
-.header img {
+.header img:first-child {
   height: 100%;
   width: 100%;
   object-fit: cover;
+
+  /* position: absolute; */
+}
+.header img:nth-child(2) {
+  width: 90%;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  height: fit-content;
 }
 .header div {
   width: 383px;
@@ -123,8 +166,8 @@ button:hover {
   border-radius: 5px;
   background-color: white;
   position: absolute;
-  bottom: 100px;
-  left: 8%;
+  top: 15%;
+  left: 10%;
 }
 
 .header h1 {
@@ -169,6 +212,7 @@ button:hover {
   width: 100%;
   height: 360px;
   object-fit: cover;
+  color: gray;
 }
 .section1 {
   padding: 40px 0px;
@@ -190,6 +234,30 @@ button:hover {
   line-height: 15px;
   color: rgba(128, 128, 128, 0.735);
 }
+.pages {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  color: gray;
+}
+.pages button,
+.pages div {
+  border: none;
+  background-color: #007782;
+  border-radius: 5px;
+  color: white;
+  width: 10px;
+  width: 30px;
+  height: 30px;
+}
+.pages div {
+  background-color: white;
+}
+.chevron {
+  width: 100%;
+}
 /* Offer */
 
 .section2 {
@@ -201,7 +269,10 @@ button:hover {
   height: 602px;
   width: 100%;
   object-fit: contain;
+  border: #007782 1px solid;
+  color: gray;
 }
+
 .carroussel img {
   height: 200px;
   width: 33%;
@@ -287,13 +358,11 @@ button:hover {
   font-size: 15px;
   border-radius: 5px;
 }
-.App {
-  position: relative;
-  z-index: 1;
-}
-.App.AppOn {
+.AppOn {
   height: 100vh;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 .SignUp,
 .Login {
@@ -327,11 +396,10 @@ button:hover {
   line-height: 16px;
 }
 
-.hide {
+/* .hide {
   display: none;
-}
-.hide.wrong {
-  display: block;
+} */
+.red {
   color: red;
 }
 .SignUp form input,
@@ -409,4 +477,149 @@ button:hover {
   left: 5px;
   font-family: V-Inter-Med;
   font-size: 24px;
+}
+.bold {
+  font-family: V-Inter-Med;
+  font-size: 20px;
+  color: #007782;
+}
+.pages p:hover {
+  cursor: pointer;
+}
+
+/* price-Range */
+.range {
+  width: 40%;
+  height: 70px;
+}
+/* .range div:first-child {
+  width: 100%;
+  display: flex;
+  height: 36px;
+}
+.range div:nth-child(2) {
+  height: 0px;
+  width: 100%;
+  align-self: center;
+} */
+.momResults {
+  display: flex;
+  justify-content: flex-end;
+}
+.resultsNumber {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin-top: 20px;
+  color: #ffffff;
+  font-family: V-Inter-Reg;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 55px 0px 0px 55px;
+  background-color: #007782;
+}
+.resultsNumber button {
+  border: none;
+  background-color: transparent;
+  /* border: #007782 solid 1px; */
+  /* box-shadow: -2px 3px 3px #007782; */
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 5px;
+}
+.resultsNumber button:hover {
+  font-family: V-Inter-Med;
+  font-size: 20px;
+}
+.resultsNumber button:nth-child(2) {
+  padding: 5px 10px;
+}
+.resultsNumber button:nth-child(3) {
+  padding: 5px 7px;
+}
+
+@media (max-width: 1210px) {
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+  .sortHome {
+    padding: 20px;
+    justify-content: space-around;
+  }
+
+  .section1 .container {
+    justify-content: center;
+    width: 800px;
+    /* border: #007782 solid 1px; */
+  }
+  .header img:nth-child(2) {
+    width: 100%;
+
+    bottom: 0px;
+  }
+}
+@media (max-width: 850px) {
+  .section1 .container {
+    width: 600px;
+  }
+  header button {
+    width: 70px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 99px;
+  }
+  header .headerUser {
+    width: fit-content;
+    /* border: saddlebrown 2px solid; */
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .headerUser button {
+    flex: none;
+    width: 90px;
+    border-radius: 55px;
+    color: #007782;
+    font-size: 10px;
+  }
+}
+@media (max-width: 580px) {
+  header form {
+    width: 50%;
+  }
+  .section1 .container {
+    width: 300px;
+  }
+  header button {
+    display: none;
+  }
+  header .headerUser button {
+    display: inline;
+  }
+  .header div {
+    width: 100%;
+    height: 20%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.602);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header div h1 {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  .header div button {
+    margin-top: 0px;
+    width: 70%;
+    border-radius: 55px;
+  }
 }

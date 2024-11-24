@@ -9,15 +9,18 @@ import ModalLogin from "./components/ModalLogin";
 import { useState } from "react";
 import Cookies from "js-cookie";
 function App() {
+  const [search, setSearch] = useState("");
   const [signUp, setSignUp] = useState(false);
   const [login, setLogin] = useState(false);
   const [connected, setConnected] = useState(
     Cookies.get("token") ? true : false
   );
+
   return (
-    <div className={`App ${signUp || login ? "AppOn" : ""}`}>
+    <div className={signUp || login ? "AppOn" : ""}>
       <Router>
         <Header
+          setSearch={setSearch}
           signUp={signUp}
           setSignUp={setSignUp}
           connected={connected}
@@ -26,7 +29,7 @@ function App() {
           setLogin={setLogin}
         />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home search={search} />} />
           <Route path="/Offers/:id" element={<Offer />} />
         </Routes>
         {signUp && (

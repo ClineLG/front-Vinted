@@ -1,18 +1,17 @@
-import { useState } from "react";
+// import { useState } from "react";
 import logo from "../assets/imgs/logo-Vinted.svg";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
-
+import { CiSearch } from "react-icons/ci";
 const Header = ({
   signUp,
+  setSearch,
   setSignUp,
   connected,
   setConnected,
   login,
   setLogin,
 }) => {
-  const [search, setSearch] = useState("");
-
   return (
     <header>
       <div className="container">
@@ -24,13 +23,16 @@ const Header = ({
             event.preventDefault();
           }}
         >
-          <input
-            type="text"
-            placeholder="Rechercher des articles"
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-          />
+          <div className="search">
+            <CiSearch className="searchIcon" />
+            <input
+              type="text"
+              placeholder={"Rechercher des articles"}
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+            />{" "}
+          </div>
         </form>
 
         {connected ? (
