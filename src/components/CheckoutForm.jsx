@@ -42,7 +42,7 @@ const CheckoutForm = ({ offer, setCompleted, completed }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: "http://localhost:5173/",
+        return_url: "https://frontv1nted.netlify.app/", //"http://localhost:5173/"
       },
       redirect: "if_required",
     });
