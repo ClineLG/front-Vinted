@@ -1,0 +1,132 @@
+.formOffer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+.publish h1 {
+  font-size: 35px;
+  padding-bottom: 30px;
+  font-family: V-Inter-Reg, Arial, Helvetica, sans-serif;
+  color: rgb(88, 87, 87);
+}
+
+.formOffer div {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 6px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.224);
+}
+.formOffer div div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 0%;
+  background-color: #ffffff;
+  padding: 20px;
+  padding-left: 70px;
+}
+.formOffer input,
+.formOffer textarea {
+  resize: none;
+  width: 50%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.164);
+}
+
+.formOffer input::placeholder,
+.formOffer textarea::placeholder {
+  color: #999d9e75;
+}
+
+.publish {
+  padding: 60px 0;
+  background-color: rgba(128, 128, 128, 0.249);
+}
+.formOffer .dropDiv {
+  background-color: #00778284;
+  text-align: center;
+  width: 90%;
+  height: 300px;
+  align-self: center;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0;
+  border: #ffffff 3px solid;
+  border-style: dashed;
+}
+.dropDiv .pictureName {
+  color: white;
+  /* background-color: green; */
+}
+.formOffer .submit {
+  background-color: transparent;
+  width: 10%;
+  align-self: flex-end;
+}
+
+.formOffer .submit button {
+  border: none;
+  background-color: #007782;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+.formOffer .price {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20px;
+  justify-content: space-between;
+}
+.SignUp .dropDiv {
+  width: 100%;
+  height: fit-content;
+  padding: 20px 10px;
+  /* margin-bottom: -40px; */
+  margin-top: -40px;
+  font-size: 14px;
+  background-color: #00778284;
+  text-align: center;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: #ffffff 2px solid;
+  border-style: dashed;
+}
+.SignUp .dropDiv .pictureName .list {
+  /* border: #007782 4px solid; */
+  width: 100%;
+  font-size: 10px;
+}
+.SignUp label {
+  align-self: flex-start;
+  margin-bottom: -10px;
+  color: rgba(128, 128, 128, 0.875);
+}
+
+.notConnectedOffer {
+  text-align: center;
+  margin-top: 100px;
+  width: fit-content;
+  padding: 40px;
+  border-radius: 10px;
+  color: white;
+  background-color: #00778278;
+}
+.publish p.red {
+  text-align: center;
+  color: rgb(186, 70, 70);
+  font-family: V-Inter-Med, Arial, Helvetica, sans-serif;
+}

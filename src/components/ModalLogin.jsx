@@ -1,10 +1,8 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const ModalLogin = ({ setLogin, setSignUp, setConnected }) => {
-  //   const navigate = useNavigate();
   const [data, setData] = useState();
 
   const [userInfo, setUserInfo] = useState({
@@ -24,15 +22,18 @@ const ModalLogin = ({ setLogin, setSignUp, setConnected }) => {
       setConnected(true);
       setLogin(false);
     } catch (error) {
-      if (
-        error.response.data.error === "Wrong password" ||
-        error.response.data.error === "Email address unknown"
-      ) {
-        setData("Mauvais mot de passe et/ou email");
-      } else if (error.response.data.error === "Password needed") {
-        setData("Veuillez entrer un mot de passe");
-      } else if (error.response.data.error === "Email address needed") {
-        setData("Veuillez entrer une adresse e-mail");
+      console.log(error.response);
+      if (error.response.data) {
+        if (
+          error.response.data.error === "Wrong password" ||
+          error.response.data.error === "Email address unknown"
+        ) {
+          setData("Mauvais mot de passe et/ou email");
+        } else if (error.response.data.error === "Password needed") {
+          setData("Veuillez entrer un mot de passe");
+        } else if (error.response.data.error === "Email address needed") {
+          setData("Veuillez entrer une adresse e-mail");
+        }
       } else {
         setData("Une erreur est survenue, veuillez réessayer");
       }
@@ -65,7 +66,7 @@ const ModalLogin = ({ setLogin, setSignUp, setConnected }) => {
           />
 
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder="Mot de passe"
             onChange={(event) => {

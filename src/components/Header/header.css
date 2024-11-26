@@ -1,0 +1,58 @@
+header {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 1px solid rgba(172, 172, 172, 0.24);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .headerUser {
+  display: flex;
+  gap: 20px;
+  width: 250px;
+}
+header form {
+  width: 30%;
+}
+
+header button {
+  border: none;
+  background-color: #007782;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  padding: 8px;
+  font-family: "V-Inter-reg";
+}
+
+.search {
+  /* border: #007782 1px solid; */
+  display: flex;
+  align-items: center;
+  background-color: rgba(157, 157, 157, 0.407);
+  padding: 0px 10px;
+  gap: 5px;
+  border-radius: 5px;
+}
+
+header input {
+  width: 100%;
+  border: none;
+  padding: 8px 0;
+  border-radius: 5px;
+  background-color: transparent;
+}
+header input::placeholder {
+  font-family: V-Inter-reg, Arial, Helvetica, sans-serif;
+  color: rgba(128, 128, 128, 0.729);
+  font-size: 15px;
+}
+.searchIcon {
+  font-size: 20px;
+  color: rgba(128, 128, 128, 0.729);
+}

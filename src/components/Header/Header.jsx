@@ -1,6 +1,6 @@
-// import { useState } from "react";
-import logo from "../assets/imgs/logo-Vinted.svg";
-import { Link } from "react-router-dom";
+import "./header.css";
+import logo from "/src/assets/imgs/logo-Vinted.svg";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { CiSearch } from "react-icons/ci";
 const Header = ({
@@ -12,6 +12,8 @@ const Header = ({
   login,
   setLogin,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className="container">
@@ -23,7 +25,7 @@ const Header = ({
             event.preventDefault();
           }}
         >
-          <div className="search">
+          <div className="search none">
             <CiSearch className="searchIcon" />
             <input
               type="text"
@@ -31,7 +33,7 @@ const Header = ({
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
-            />{" "}
+            />
           </div>
         </form>
 
@@ -49,6 +51,7 @@ const Header = ({
             <button
               onClick={() => {
                 setSignUp(!signUp);
+                setLogin(false);
               }}
             >
               S'inscrire
@@ -56,6 +59,7 @@ const Header = ({
             <button
               onClick={() => {
                 setLogin(!login);
+                setSignUp(false);
               }}
             >
               Se connecter
@@ -63,7 +67,17 @@ const Header = ({
           </div>
         )}
 
-        <button>Vends tes Articles</button>
+        <button
+          onClick={() => {
+            navigate("/publish");
+            if (!Cookies.get("token")) {
+              setLogin(!login);
+            }
+          }}
+          className="vendre"
+        >
+          Vends tes Articles !
+        </button>
       </div>
     </header>
   );

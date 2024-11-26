@@ -1,0 +1,298 @@
+.sortHome {
+  background-color: #ffffff;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 13px;
+  color: gray;
+}
+
+.sortHome button {
+  padding: 10px;
+  height: 21px;
+  width: 41px;
+  border-radius: 99px;
+  border: none;
+  background-color: #007782;
+  position: relative;
+}
+.sortHome div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.sortHome p {
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  display: flex;
+  gap: 3px;
+}
+.toggle .ball {
+  height: 17px;
+  width: 17px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 99px;
+  position: absolute;
+  left: 3px;
+  bottom: 2px;
+  transform: translateX(0);
+  transition: left 0.5s ease;
+}
+.toggle.on .ball {
+  left: calc(40px - 19px);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* hero */
+
+.headerUser button {
+  border: none;
+  flex: 1;
+  padding: 6px 10px;
+  background-color: white;
+  border: 1px solid #007782;
+  border-radius: 5px;
+  color: #007782;
+  font-size: 12px;
+}
+
+.header {
+  height: 560px;
+  position: relative;
+}
+.header img:first-child {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.header img:nth-child(2) {
+  width: 90%;
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  height: fit-content;
+}
+.header div {
+  width: 383px;
+  padding: 50px 30px;
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  top: 15%;
+  left: 10%;
+}
+
+.header h1 {
+  width: 76%;
+}
+.header div button {
+  margin-top: 30px;
+  padding: 10px;
+  border: none;
+  background-color: #007782;
+  width: 100%;
+  border-radius: 5px;
+
+  color: white;
+}
+/* section offres */
+
+.offer {
+  height: 470px;
+  width: 230px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.offer div:first-child {
+  width: 100%;
+  height: 10%;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  color: rgba(128, 128, 128, 0.707);
+}
+.offer div:first-child img {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.mainpicture {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  color: gray;
+}
+.section1 {
+  padding: 40px 0px;
+}
+.section1 .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  row-gap: 20px;
+}
+.homeDetailsOffer {
+  padding: 5px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.homeDetailsOffer p {
+  font-size: 11px;
+  line-height: 15px;
+  color: rgba(128, 128, 128, 0.735);
+}
+
+.momResults {
+  display: flex;
+  justify-content: flex-end;
+}
+.resultsNumber {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin-top: 20px;
+  color: #ffffff;
+  font-family: V-Inter-Reg, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 55px 0px 0px 55px;
+  background-color: #007782;
+}
+.resultsNumber button {
+  border: none;
+  background-color: transparent;
+  /* border: #007782 solid 1px; */
+  /* box-shadow: -2px 3px 3px #007782; */
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 5px;
+}
+.resultsNumber button:hover {
+  font-family: V-Inter-Med;
+  font-size: 20px;
+}
+.resultsNumber button:nth-child(2) {
+  padding: 5px 10px;
+}
+.resultsNumber button:nth-child(3) {
+  padding: 5px 7px;
+}
+
+.bold {
+  font-family: V-Inter-Med;
+  font-size: 20px;
+  color: #007782;
+}
+.pages p:hover {
+  cursor: pointer;
+}
+.pages.container {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pages button {
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding-top: 3px;
+  background-color: #007782;
+}
+
+/* price-Range */
+.range {
+  width: 50%;
+  height: 70px;
+}
+
+.twinSortHome {
+  background-color: #ffffff;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  padding: 20px;
+  font-size: 13px;
+  color: gray;
+  font-size: 10px;
+  justify-content: space-between;
+  display: none;
+}
+.twinSortHome button {
+  padding: 10px;
+  height: 21px;
+  width: 41px;
+  border-radius: 99px;
+  border: none;
+  background-color: #007782;
+  position: relative;
+}
+.twinSortHome div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.twinSortHome p {
+  color: white;
+  font-size: 18px;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  display: flex;
+  gap: 3px;
+}
+.toggle .ball {
+  height: 17px;
+  width: 17px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 99px;
+  position: absolute;
+  left: 3px;
+  bottom: 2px;
+  transform: translateX(0);
+  transition: left 0.5s ease;
+}
+.toggle.on .ball {
+  left: calc(40px - 19px);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.twinSortHome .priceMinPriceMax {
+  width: 30%;
+  display: flex;
+  gap: 30px;
+  padding-left: 20px;
+  /* border: red solid 1px; */
+}
+#priceMinPriceMax1,
+#priceMinPriceMax2 {
+  width: 60%;
+  border: none;
+  border-bottom: #00778250 1px solid;
+}
+@media (max-width: 860px) {
+  .sortHome {
+    display: none;
+  }
+  .twinSortHome {
+    display: flex;
+  }
+}

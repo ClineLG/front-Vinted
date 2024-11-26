@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-
+import DropPicture from "./DropPicture";
 const ModalSignUp = ({ setSignUp, setConnected, setLogin }) => {
   const [data, setData] = useState();
   const [userInfo, setUserInfo] = useState({
@@ -12,9 +12,18 @@ const ModalSignUp = ({ setSignUp, setConnected, setLogin }) => {
     event.preventDefault();
     setData(null);
     try {
+      const formData = new FormData();
+      formData.append("username", userInfo.username);
+      formData.append("email", userInfo.email);
+      formData.append("password", userInfo.password);
+      formData.append("newsletter", userInfo.newsletter);
+      formData.append("picture", userInfo.picture);
       const response = await axios.post(
-        "https://site--vinted-backend-project--dm4qbjsg7dww.code.run/user/signup",
-        userInfo
+        `https://site--vinted-backend-project--dm4qbjsg7dww.code.run/user/signup`,
+        formData,
+        {
+          "Content-Type": "multipart/form-data",
+        }
       );
 
       Cookies.set("token", response.data.token, { expires: 30 });
@@ -46,6 +55,11 @@ const ModalSignUp = ({ setSignUp, setConnected, setLogin }) => {
         </button>
         <form onSubmit={handleSubmit}>
           <h2>S'inscrire</h2>
+          <DropPicture
+            str={"Ajoute un avatar en faisant glisser une image ici !"}
+            setState={setUserInfo}
+            state={userInfo}
+          />
           <input
             type="text"
             name="username"
@@ -69,7 +83,7 @@ const ModalSignUp = ({ setSignUp, setConnected, setLogin }) => {
           />
           {/* {submit && userInfo.email === "" && <span>email missing</span>} */}
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder="Mot de passe"
             onChange={(event) => {
@@ -78,6 +92,7 @@ const ModalSignUp = ({ setSignUp, setConnected, setLogin }) => {
               setUserInfo(objUser);
             }}
           />
+
           {/* {submit && userInfo.password === "" && <span>password missing</span>} */}
           <div className="checkbox">
             <input
@@ -90,6 +105,7 @@ const ModalSignUp = ({ setSignUp, setConnected, setLogin }) => {
                 setUserInfo(objUser);
               }}
             />
+
             <p>S'inscrire à la newsletter</p>
           </div>
           <p className="descripcheck">
@@ -101,7 +117,6 @@ const ModalSignUp = ({ setSignUp, setConnected, setLogin }) => {
             S'inscrire
           </button>
           {data && <p className="red">{data}</p>}
-
           <p
             className="link"
             onClick={() => {

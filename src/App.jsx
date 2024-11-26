@@ -1,13 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Home from "./pages/Home";
-import Header from "./components/Header";
-import "./App.css";
-import Offer from "./pages/Offer";
-import ModalSignUp from "./components/ModalSignUp";
-import ModalLogin from "./components/ModalLogin";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import Payment from "./pages/Payment/Payment";
+import "./App.css";
+
+import Home from "./pages/Home/Home";
+import ModalSignUp from "./components/ModalSignUp";
+import ModalLogin from "./components/ModalLogin";
+
+import Header from "./components/Header/Header";
+import Offer from "./pages/Offer/Offer";
+import Publish from "./pages/Publish/Publish";
+
 function App() {
   const [search, setSearch] = useState("");
   const [signUp, setSignUp] = useState(false);
@@ -30,7 +34,12 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Home search={search} />} />
-          <Route path="/Offers/:id" element={<Offer />} />
+          <Route path="/Offers/:id" element={<Offer setLogin={setLogin} />} />
+          <Route
+            path="/publish"
+            element={<Publish login={login} setLogin={setLogin} />}
+          />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
         {signUp && (
           <ModalSignUp

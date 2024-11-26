@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { MdNoPhotography } from "react-icons/md";
+import Cookies from "js-cookie";
+import "./offer.css";
 
-const Offers = () => {
+const Offers = ({ setLogin }) => {
   const { id } = useParams();
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           // `https://lereacteur-vinted-api.herokuapp.com/v2/offers/${id}`
-          // `https://site--vinted-backend-project--dm4qbjsg7dww.code.run/offers/${id}`
-          `http://localhost:3000/offers/${id}`
+          `https://site--vinted-backend-project--dm4qbjsg7dww.code.run/offers/${id}`
+          // `http://localhost:3000/offers/${id}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -71,7 +74,14 @@ const Offers = () => {
               <span>{data.owner.account.username}</span>
             </div>
           </div>
-          <button>Acheter</button>
+          <button
+            onClick={() => {
+              navigate("/payment", { state: { offer: data } });
+              if (!Cookies.get("token")) setLogin(true);
+            }}
+          >
+            Acheter
+          </button>
         </div>
       </div>
     </section>

@@ -1,11 +1,11 @@
-import * as React from "react";
-import { Direction, Range, getTrackBackground } from "react-range";
+import { useState } from "react";
+import { Range, getTrackBackground } from "react-range";
 
-const STEP = 10;
-const MIN = 0;
-const MAX = 1000;
-const PriceRange: React.FC = ({ query, setQuery }) => {
-  const [values, setValues] = React.useState([query.priceMin, query.priceMax]);
+const PriceRange = ({ query, setQuery }) => {
+  const STEP = 15;
+  const MIN = 0;
+  const MAX = 6000;
+  const [values, setValues] = useState([query.priceMin, query.priceMax]);
   return (
     <div
       className="range"
@@ -30,6 +30,7 @@ const PriceRange: React.FC = ({ query, setQuery }) => {
         }}
         renderTrack={({ props, children }) => (
           <div
+            className="test"
             onMouseDown={props.onMouseDown}
             onTouchStart={props.onTouchStart}
             style={{
@@ -63,7 +64,6 @@ const PriceRange: React.FC = ({ query, setQuery }) => {
             {...props}
             key={props.key}
             style={{
-              ...props.style,
               position: "absolute",
               top: "15px",
               height: "20px",

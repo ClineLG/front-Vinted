@@ -1,0 +1,69 @@
+.paymentForm {
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 13px;
+  color: gray;
+}
+.paymentForm p:not(.special),
+.paymentForm h2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.paymentForm .bigger {
+  font-size: 20px;
+
+  font-family: V-Inter-Med, Arial, Helvetica, sans-serif;
+}
+.paymentForm h2 {
+  padding: 30px 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.155);
+}
+.paymentForm h3 {
+  font-family: V-Inter-Med, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  padding: 30px 0;
+}
+.paymentForm .black h2,
+.paymentForm .special span {
+  font-family: V-Inter-Med, Arial, Helvetica, sans-serif;
+  color: rgb(69, 69, 69);
+}
+.inverseForm {
+  flex-direction: column-reverse;
+}
+.PaymentSubmit {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #007782;
+  border-radius: 6px;
+  color: white;
+}
+.paymentForm .red {
+  width: fit-content;
+  margin: 0 auto;
+}
+.sectionPay {
+  background-color: rgba(128, 128, 128, 0.506);
+  height: 100vh;
+  padding-top: 100px;
+}
+.sectionPay .container > div {
+  background-color: white;
+  width: 50%;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+@media (max-width: 860px) {
+  .sectionPay .container > div {
+    width: 100%;
+  }
+}
